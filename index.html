@@ -56,13 +56,22 @@
         }
 
         .logo {
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .logo-project {
+            height: 60px;
+        }
+
+        .logo-school {
+            height: 50px;
         }
 
         nav ul {
@@ -102,6 +111,20 @@
             background: url('images/hero-lotus.jpg') center/cover no-repeat;
             opacity: 0.08;
             z-index: 0;
+        }
+
+        .hero-image {
+            max-width: 900px;
+            margin: 3rem auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         .hero-container {
@@ -561,6 +584,18 @@
                 gap: 1.5rem;
             }
 
+            .logo img {
+                height: 50px;
+            }
+
+            .logo-project {
+                height: 50px;
+            }
+
+            .logo-school {
+                height: 40px;
+            }
+
             nav ul {
                 flex-wrap: wrap;
                 justify-content: center;
@@ -631,7 +666,10 @@
     <!-- Header -->
     <header>
         <div class="header-container">
-            <div class="logo">РОСТ</div>
+            <div class="logo">
+                <img src="images/logo-project.jpg" alt="РОСТ" class="logo-project">
+                <img src="images/logo-school.jpg" alt="Всёедино" class="logo-school">
+            </div>
             <nav>
                 <ul>
                     <li><a href="#hero">Главная</a></li>
@@ -652,6 +690,10 @@
             <p class="subtitle">
                 Цикл вебинаров, подкастов и мероприятий для поддержки духовного и личностного роста людей от школы Всё едино и системы Прямого Пути Сергея Бобыря для гармонизации повседневной жизни.
             </p>
+
+            <div class="hero-image">
+                <img src="images/hero-rost.jpg" alt="РОСТ - практика осознанной жизни">
+            </div>
 
             <div class="acronym">
                 <div class="acronym-item">
