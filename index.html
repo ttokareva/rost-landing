@@ -145,6 +145,17 @@
             line-height: 1.2;
             color: var(--dark-text);
             font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero h1 .hero-logo {
+            height: 80px;
+            width: auto;
+            vertical-align: middle;
         }
 
         .hero h1 .highlight {
@@ -651,6 +662,10 @@
                 font-size: 1.75rem;
             }
 
+            .hero h1 .hero-logo {
+                height: 60px;
+            }
+
             .hero .subtitle {
                 font-size: 0.9375rem;
             }
@@ -727,7 +742,13 @@
     <!-- Hero Section -->
     <section id="hero" class="hero">
         <div class="hero-container">
-            <h1><span class="highlight">РОСТ:</span> практика осознанной<br>и гармоничной жизни</h1>
+            <h1>
+                <img src="images/logo-project.jpg" alt="РОСТ" class="hero-logo">
+                <span style="display: flex; flex-direction: column; align-items: center;">
+                    <span><span class="highlight">РОСТ:</span> практика осознанной</span>
+                    <span>и гармоничной жизни</span>
+                </span>
+            </h1>
             <p class="subtitle">
                 Цикл вебинаров, подкастов и мероприятий для поддержки духовного и личностного роста людей от школы Всё едино и системы Прямого Пути Сергея Бобыря для гармонизации повседневной жизни.
             </p>
