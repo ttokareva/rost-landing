@@ -1,0 +1,19 @@
+Looking at the user's screenshot:
+
+The visible text in the hero section shows:
+Line (partially cut off at top): "...и гармоничной жизни"
+
+This means the FIRST line that should be visible is being cut off at the TOP of the viewport.
+
+The full title should be:
+Line 1: "РОСТ — практика осознанной" (or possibly "Твой путь к осознанной")
+Line 2: "и гармоничной жизни"
+
+But in the screenshot, we can only see the SECOND line, and even that appears to be cut off at the top.
+
+The issue is that the header/navigation is covering the hero title, or the hero section is positioned too high up on the page, causing the first line to be hidden behind the fixed header.
+
+Need to check:
+1. Is the header fixed/sticky?
+2. What is the z-index relationship?
+3. Is there enough padding-top on the hero section to account for the header height?

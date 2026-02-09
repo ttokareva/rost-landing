@@ -111,7 +111,7 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, rgba(107, 155, 55, 0.08) 0%, rgba(139, 195, 74, 0.05) 100%);
-            padding: 10rem 2rem 5rem;
+            padding: 12rem 2rem 5rem;
             text-align: center;
             position: relative;
             overflow: visible;
@@ -529,6 +529,21 @@
             border-radius: 12px;
             border: 1px solid var(--border-color);
             box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+
+        .google-form-container {
+            max-width: 800px;
+            margin: 2.5rem auto;
+            background: var(--bg-white);
+            padding: 1rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            overflow: hidden;
+        }
+
+        .google-form-container iframe {
+            border-radius: 8px;
         }
 
         .form-group {
@@ -1008,22 +1023,8 @@
     <section id="registration" class="section-light">
         <div class="container">
             <h2>Регистрация</h2>
-            <div class="form-container">
-                <form id="registrationForm" onsubmit="handleSubmit(event)">
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required placeholder="Ваш email">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Телефон *</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__">
-                    </div>
-                    <div class="form-group checkbox-group">
-                        <input type="checkbox" id="consent" name="consent" required>
-                        <label for="consent">Я согласен(на) на обработку персональных данных в соответствии с политикой конфиденциальности *</label>
-                    </div>
-                    <button type="submit" class="submit-btn">Зарегистрироваться</button>
-                </form>
+            <div class="google-form-container">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSczlaGmIcQUIBHWcNo-mhp_-Yh_4rZaGlsaIgYGy-bhpJjZkg/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
             </div>
         </div>
     </section>
@@ -1070,28 +1071,6 @@
         </div>
     </footer>
 
-    <script>
-        function handleSubmit(event) {
-            event.preventDefault();
-            
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const consent = document.getElementById('consent').checked;
-            
-            if (!consent) {
-                alert('Пожалуйста, дайте согласие на обработку персональных данных.');
-                return;
-            }
-            
-            // Here you would typically send the data to your server
-            console.log('Form submitted:', { email, phone, consent });
-            
-            // Show success message
-            alert('Спасибо за регистрацию! Мы свяжемся с вами в ближайшее время.');
-            
-            // Reset form
-            document.getElementById('registrationForm').reset();
-        }
-    </script>
+
 </body>
 </html>

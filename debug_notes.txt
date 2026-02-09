@@ -1,0 +1,12 @@
+Issue: First line "Твой путь к осознанной" is NOT showing in the hero title
+
+Current visible text in hero:
+"РОСТ — практика осознанной и гармоничной жизни"
+
+Expected full title should be:
+Line 1: "Твой путь к осознанной"
+Line 2: "и гармоничной жизни"
+
+The first line is completely missing from the display.
+
+Looking at the HTML structure - need to check the actual h1 content.
