@@ -390,15 +390,17 @@
             border-color: var(--primary-color);
         }
 
-        .work-card::before {
-            content: '';
-            display: block;
+        .work-card-icon {
             width: 80px;
             height: 80px;
-            margin: 0 auto 2rem;
+            margin: 0 auto 1.5rem;
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             border-radius: 50%;
-            opacity: 0.15;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
         }
 
         .work-card h3 {
@@ -824,12 +826,18 @@
             <h2>Как это работает</h2>
             <div class="work-grid">
                 <div class="work-card">
+                    <div class="work-card-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
                     <h3>Вебинары</h3>
                     <p>
                         Каждую вторую и четвертую среду месяца мы будем проводить на наших площадках вебинары на насущные темы. В анонсах на наших соцсетях будут адреса и ссылки.
                     </p>
                 </div>
                 <div class="work-card">
+                    <div class="work-card-icon">
+                        <i class="fas fa-microphone-alt"></i>
+                    </div>
                     <h3>Подкасты</h3>
                     <p>
                         Регулярные подкасты с тренерами школы Всёедино.ру и с приглашёнными экспертами и мастерами своего дела помогут сориентироваться в самых разных направлениях по саморазвитию. В прямом эфире вы можете задавать интересующие вас вопросы.
