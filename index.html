@@ -157,11 +157,13 @@
             color: var(--dark-text);
             font-weight: 600;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             gap: 1rem;
             flex-wrap: wrap;
             text-align: center;
+            overflow: visible;
+            min-height: 140px;
         }
 
         .hero h1 .hero-logo {
@@ -692,6 +694,8 @@
                 flex-direction: column;
                 gap: 0.75rem;
                 width: 100%;
+                min-height: 100px;
+                align-items: center;
             }
 
             .hero h1 .hero-logo {
@@ -746,6 +750,8 @@
             .hero h1 {
                 font-size: 1.25rem;
                 width: 100%;
+                min-height: 80px;
+                align-items: center;
             }
 
             .hero h1 .hero-logo {
