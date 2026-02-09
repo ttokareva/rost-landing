@@ -177,6 +177,20 @@
             background-clip: text;
         }
 
+        .hero-title-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .hero-title-line {
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+
         .hero .subtitle {
             font-size: 1rem;
             margin-bottom: 2.5rem;
@@ -674,14 +688,20 @@
                 font-size: 1.5rem;
                 flex-direction: column;
                 gap: 0.75rem;
+                width: 100%;
             }
 
             .hero h1 .hero-logo {
                 height: 80px;
             }
 
-            .hero h1 span {
+            .hero-title-text {
                 width: 100%;
+                max-width: 100%;
+            }
+
+            .hero-title-line {
+                font-size: 1.5rem;
             }
 
             .hero .subtitle {
@@ -718,10 +738,15 @@
         @media (max-width: 640px) {
             .hero h1 {
                 font-size: 1.25rem;
+                width: 100%;
             }
 
             .hero h1 .hero-logo {
                 height: 60px;
+            }
+
+            .hero-title-line {
+                font-size: 1.25rem;
             }
 
             .container {
@@ -793,9 +818,9 @@
         <div class="hero-container">
             <h1>
                 <img src="images/logo-project.png" alt="РОСТ" class="hero-logo">
-                <span style="display: flex; flex-direction: column; align-items: center;">
-                    <span><span class="highlight">РОСТ</span> — практика осознанной</span>
-                    <span>и гармоничной жизни</span>
+                <span class="hero-title-text">
+                    <span class="hero-title-line"><span class="highlight">РОСТ</span> — практика осознанной</span>
+                    <span class="hero-title-line">и гармоничной жизни</span>
                 </span>
             </h1>
             <p class="subtitle">
