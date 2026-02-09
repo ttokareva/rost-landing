@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>РОСТ - Практика осознанной и гармоничной жизни</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,22 +12,38 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-color: #4DB8C4;
+            --secondary-color: #5BC5D1;
+            --accent-color: #FF6B9D;
+            --dark-text: #2C3E50;
+            --light-text: #6C7A89;
+            --bg-light: #F8FBFD;
+            --bg-white: #FFFFFF;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.7;
+            color: var(--dark-text);
+            background-color: var(--bg-white);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
         }
 
         /* Header */
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 1.2rem 0;
+            position: fixed;
             top: 0;
+            width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            backdrop-filter: blur(10px);
         }
 
         .header-container {
@@ -39,170 +56,245 @@
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            letter-spacing: 2px;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         nav a {
-            color: white;
+            color: var(--dark-text);
             text-decoration: none;
-            transition: opacity 0.3s;
+            transition: color 0.3s;
             font-weight: 500;
+            font-size: 0.95rem;
         }
 
         nav a:hover {
-            opacity: 0.8;
+            color: var(--primary-color);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 5rem 2rem;
+            background: linear-gradient(135deg, rgba(77, 184, 196, 0.1) 0%, rgba(91, 197, 209, 0.05) 100%);
+            padding: 10rem 2rem 6rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('images/hero-lotus.jpg') center/cover no-repeat;
+            opacity: 0.08;
+            z-index: 0;
         }
 
         .hero-container {
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1.5rem;
             line-height: 1.2;
+            color: var(--dark-text);
+            font-weight: 700;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero .subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
             line-height: 1.8;
             max-width: 900px;
             margin-left: auto;
             margin-right: auto;
+            color: var(--light-text);
+            font-weight: 300;
         }
 
         .acronym {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 2rem;
-            margin: 3rem auto;
-            max-width: 900px;
+            margin: 4rem auto;
+            max-width: 1000px;
         }
 
         .acronym-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1.5rem;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
+            background: var(--bg-white);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(77, 184, 196, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .acronym-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(77, 184, 196, 0.15);
         }
 
         .acronym-item h3 {
             font-size: 1.5rem;
+            color: var(--primary-color);
             margin-bottom: 0.5rem;
-        }
-
-        /* Hero Image */
-        .hero-image {
-            margin: 3rem auto;
-            max-width: 800px;
-            height: 400px;
-            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            font-style: italic;
-            border: 2px dashed rgba(255,255,255,0.3);
         }
 
         /* Social CTA */
         .social-cta {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem auto;
-            max-width: 800px;
+            background: var(--bg-white);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 3rem auto;
+            max-width: 900px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
         }
 
         .social-cta h3 {
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            font-size: 1.4rem;
+            color: var(--dark-text);
+            font-weight: 600;
         }
 
         .social-links {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .social-btn {
-            background: white;
-            color: #667eea;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
             transition: transform 0.3s, box-shadow 0.3s;
             display: inline-block;
+            font-size: 1rem;
         }
 
         .social-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(77, 184, 196, 0.3);
         }
 
         .bot-info {
-            margin-top: 1.5rem;
-            font-size: 1.1rem;
+            margin-top: 2rem;
+            font-size: 1.05rem;
+            color: var(--light-text);
+            line-height: 1.8;
         }
 
         /* Section Styles */
         section {
-            padding: 4rem 2rem;
+            padding: 6rem 2rem;
+        }
+
+        .section-light {
+            background: var(--bg-white);
+        }
+
+        .section-gray {
+            background: var(--bg-light);
+        }
+
+        .container {
             max-width: 1200px;
             margin: 0 auto;
         }
 
         section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #667eea;
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            color: var(--dark-text);
             text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
         }
 
         section p {
             font-size: 1.1rem;
-            line-height: 1.8;
+            line-height: 1.9;
             margin-bottom: 1.5rem;
+            color: var(--light-text);
         }
 
-        /* Problem/Solution Section */
-        #problem {
-            background: white;
+        /* Image Text Section */
+        .image-text-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin: 4rem 0;
         }
 
+        .image-text-section img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+        }
+
+        .image-text-section.reverse {
+            direction: rtl;
+        }
+
+        .image-text-section.reverse > * {
+            direction: ltr;
+        }
+
+        /* Highlight Box */
         .highlight-box {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
+            background: linear-gradient(135deg, rgba(77, 184, 196, 0.08) 0%, rgba(91, 197, 209, 0.05) 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            border-left: 5px solid var(--primary-color);
         }
 
         .highlight-box h3 {
-            color: #667eea;
+            color: var(--primary-color);
             font-size: 1.8rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .highlight-box ul {
@@ -211,164 +303,198 @@
         }
 
         .highlight-box li {
-            padding: 0.5rem 0;
-            padding-left: 2rem;
+            padding: 0.8rem 0;
+            padding-left: 2.5rem;
             position: relative;
+            font-size: 1.1rem;
+            color: var(--dark-text);
         }
 
         .highlight-box li:before {
             content: "✓";
             position: absolute;
             left: 0;
-            color: #667eea;
+            color: var(--primary-color);
             font-weight: bold;
-            font-size: 1.3rem;
-        }
-
-        /* How It Works */
-        #how-it-works {
-            background: #f5f7fa;
-        }
-
-        .work-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .work-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .work-card h3 {
-            color: #667eea;
-            margin-bottom: 1rem;
             font-size: 1.5rem;
         }
 
-        /* Benefits */
-        #benefits {
-            background: white;
+        /* Work Grid */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
         }
 
-        .benefit-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-        }
-
-        /* Pricing */
-        #pricing {
-            background: #f5f7fa;
+        .work-card {
+            background: var(--bg-white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
             text-align: center;
         }
 
-        .pricing-box {
-            background: white;
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+        }
+
+        .work-card::before {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            opacity: 0.15;
+        }
+
+        .work-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+        }
+
+        .work-card p {
+            text-align: left;
+        }
+
+        /* Benefit Card */
+        .benefit-card {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
             padding: 3rem;
-            border-radius: 15px;
+            border-radius: 20px;
+            margin: 3rem 0;
+            box-shadow: 0 15px 50px rgba(77, 184, 196, 0.2);
+        }
+
+        .benefit-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .benefit-card p {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        /* Pricing */
+        .pricing-box {
+            background: var(--bg-white);
+            padding: 4rem 3rem;
+            border-radius: 25px;
             max-width: 600px;
-            margin: 2rem auto;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 3rem auto;
+            box-shadow: 0 15px 60px rgba(0,0,0,0.08);
+            text-align: center;
         }
 
         .pricing-box h3 {
             font-size: 2rem;
-            color: #667eea;
-            margin-bottom: 1rem;
+            color: var(--dark-text);
+            margin-bottom: 1.5rem;
         }
 
         .pricing-box .price {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #764ba2;
-            margin: 1rem 0;
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 1.5rem 0;
+        }
+
+        .pricing-box p {
+            color: var(--light-text);
         }
 
         /* Registration Form */
-        #registration {
-            background: white;
-        }
-
         .form-container {
             max-width: 600px;
-            margin: 2rem auto;
-            background: #f5f7fa;
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 3rem auto;
+            background: var(--bg-white);
+            padding: 4rem 3rem;
+            border-radius: 25px;
+            box-shadow: 0 15px 60px rgba(0,0,0,0.08);
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-            color: #333;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            font-size: 1rem;
         }
 
         .form-group input {
             width: 100%;
-            padding: 1rem;
-            border: 2px solid #ddd;
-            border-radius: 5px;
+            padding: 1.2rem 1.5rem;
+            border: 2px solid #E8EEF3;
+            border-radius: 12px;
             font-size: 1rem;
-            transition: border-color 0.3s;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            font-family: 'Open Sans', sans-serif;
         }
 
         .form-group input:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(77, 184, 196, 0.1);
         }
 
         .checkbox-group {
             display: flex;
             align-items: flex-start;
-            gap: 0.5rem;
+            gap: 1rem;
         }
 
         .checkbox-group input[type="checkbox"] {
             width: auto;
             margin-top: 0.3rem;
+            cursor: pointer;
         }
 
         .checkbox-group label {
             font-weight: normal;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            color: var(--light-text);
         }
 
         .submit-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--accent-color) 0%, #FF8AB3 100%);
             color: white;
-            padding: 1rem 3rem;
+            padding: 1.3rem 3rem;
             border: none;
-            border-radius: 30px;
+            border-radius: 50px;
             font-size: 1.2rem;
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
             width: 100%;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.3);
         }
 
         /* Footer */
         footer {
-            background: #2d3748;
+            background: #2C3E50;
             color: white;
-            padding: 3rem 2rem;
+            padding: 4rem 2rem 2rem;
             text-align: center;
         }
 
@@ -380,25 +506,37 @@
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 2.5rem;
             margin: 2rem 0;
             flex-wrap: wrap;
         }
 
         .footer-links a {
-            color: white;
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
-            transition: opacity 0.3s;
+            transition: color 0.3s;
+            font-size: 0.95rem;
         }
 
         .footer-links a:hover {
-            opacity: 0.7;
+            color: var(--primary-color);
+        }
+
+        .footer-contact {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-contact p {
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0.5rem 0;
         }
 
         /* Final CTA */
         .final-cta {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 5rem 2rem;
             text-align: center;
             color: white;
         }
@@ -408,25 +546,37 @@
             margin-bottom: 1.5rem;
         }
 
+        .final-cta h2::after {
+            background: white;
+        }
+
+        .final-cta p {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 968px) {
             .header-container {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 1.5rem;
             }
 
             nav ul {
-                flex-direction: column;
-                gap: 0.5rem;
-                text-align: center;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1.5rem;
+            }
+
+            .hero {
+                padding: 8rem 2rem 4rem;
             }
 
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
             .hero .subtitle {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
 
             .acronym {
@@ -434,17 +584,46 @@
             }
 
             section h2 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
-            .hero-image {
-                height: 250px;
+            .image-text-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .image-text-section.reverse {
+                direction: ltr;
+            }
+
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
             }
         }
 
         /* Smooth Scroll */
         html {
             scroll-behavior: smooth;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-container > * {
+            animation: fadeInUp 0.8s ease-out;
         }
     </style>
 </head>
@@ -469,7 +648,7 @@
     <!-- Hero Section -->
     <section id="hero" class="hero">
         <div class="hero-container">
-            <h1>РОСТ: практика осознанной и гармоничной жизни</h1>
+            <h1><span class="highlight">РОСТ:</span> практика осознанной<br>и гармоничной жизни</h1>
             <p class="subtitle">
                 Цикл вебинаров, подкастов и мероприятий для поддержки духовного и личностного роста людей от школы Всё едино и системы Прямого Пути Сергея Бобыря для гармонизации повседневной жизни.
             </p>
@@ -489,10 +668,6 @@
                 </div>
             </div>
 
-            <div class="hero-image">
-                [Место для ключевой картинки]
-            </div>
-
             <div class="social-cta">
                 <h3>Подписывайтесь на наши соцсети, где мы будем анонсировать наши мероприятия и делиться с вами полезной информацией:</h3>
                 <div class="social-links">
@@ -501,128 +676,162 @@
                     <a href="https://www.instagram.com/vseedino.ru" class="social-btn" target="_blank">Instagram</a>
                 </div>
                 <div class="bot-info">
-                    <p>Наш тг-бот будет регулярно напоминать вам о текущих и грядущих мероприятиях и прочей активности, а также делиться с вами полезными знаниями в сфере саморазвития:</p>
-                    <p style="margin-top: 1rem;"><strong>[Адрес бота]</strong></p>
+                    <p>Наш тг-бот будет регулярно напоминать вам о текущих и грядущих мероприятиях и прочей активности, а также делиться с вами полезными знаниями в сфере саморазвития</p>
+                    <p style="margin-top: 1rem; font-weight: 600; color: var(--primary-color);">[Адрес бота]</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Problem/Solution Section -->
-    <section id="problem">
-        <h2>О проекте</h2>
-        <p>
-            Времена перемен, которые мы сейчас переживаем, дают уникальную возможность взглянуть на себя и на мир новыми глазами, начать новую осознанную жизнь с чистого листа с учётом индивидуальных способностей и особенностей. Жизнь в кризисные время заставляет задуматься, что не так и хочется ли так дальше жить. Часть людей теряет опору и подсаживаются на алкоголь или антидепрессанты, чтобы забыться и уйти от проблем. Но это только усугубляет кризис. И может привести к печальным последствиям, если не взять себя в руки и не начать работу над собой.
-        </p>
-        <p>
-            И в хаосе информации, который сейчас льётся из сетей, книг и прочих источников можно заблудиться и сделать много непоправимых ошибок. Духовность часто подаётся как некий обрядовый сонм переделанных практик и информации из классических традиций без правильной передачи.
-        </p>
-        <p>
-            О технике безопасности, экологичности духовных практик мало кто говорит открыто. Мы поделимся нашими наработками, как аккуратно, без потерь и лишних проблем становиться лучшей версией себя. Как избавляться от болей, травм, блокад и прочего негатива. Как найти себя настоящего с учётом индивидуальных способностей и особенностей и свой внутренний покой, как творить, как быть осознанным.
-        </p>
+    <section id="problem" class="section-light">
+        <div class="container">
+            <h2>О проекте</h2>
+            
+            <div class="image-text-section">
+                <div>
+                    <p>
+                        Времена перемен, которые мы сейчас переживаем, дают уникальную возможность взглянуть на себя и на мир новыми глазами, начать новую осознанную жизнь с чистого листа с учётом индивидуальных способностей и особенностей. Жизнь в кризисные время заставляет задуматься, что не так и хочется ли так дальше жить.
+                    </p>
+                    <p>
+                        Часть людей теряет опору и подсаживаются на алкоголь или антидепрессанты, чтобы забыться и уйти от проблем. Но это только усугубляет кризис. И может привести к печальным последствиям, если не взять себя в руки и не начать работу над собой.
+                    </p>
+                </div>
+                <div>
+                    <img src="images/water-ripples.jpg" alt="Спокойствие воды">
+                </div>
+            </div>
 
-        <div class="highlight-box">
-            <h3>Мы, команда проекта РОСТ, предлагаем 9-месячный цикл вебинаров, подкастов и прочих источников знаний и энергией для гармонизации жизни и корректировки пути.</h3>
             <p>
-                Мы проводим наши мероприятия безвозмездно. Мы не будем предлагать жёстких условий, чтобы вы что-то приобрели. Это наш подарок этому чудесному миру, людям, чтобы было больше Света и Любви.
+                И в хаосе информации, который сейчас льётся из сетей, книг и прочих источников можно заблудиться и сделать много непоправимых ошибок. Духовность часто подаётся как некий обрядовый сонм переделанных практик и информации из классических традиций без правильной передачи.
             </p>
-            <p><strong>Мы хотим поделиться:</strong></p>
-            <ul>
-                <li>нашим практическим опытом и знаниями,</li>
-                <li>транслировать необходимые для гармонии состояния,</li>
-                <li>провести светлые энергии людям, которые хотят реально развиваться и изменить жизнь к лучшему.</li>
-            </ul>
-        </div>
+            <p>
+                О технике безопасности, экологичности духовных практик мало кто говорит открыто. Мы поделимся нашими наработками, как аккуратно, без потерь и лишних проблем становиться лучшей версией себя. Как избавляться от болей, травм, блокад и прочего негатива. Как найти себя настоящего с учётом индивидуальных способностей и особенностей и свой внутренний покой, как творить, как быть осознанным.
+            </p>
 
-        <p>
-            Мы обсудим актуальные темы, как саморазвитие, кризисы, страхи, внутренние блокады и другие деструктивные психологические феномены и многое другое. Мы не только расскажем о них, но и предложим и проведём в живом эфире практики, которые помогут решить или облегчить те или иные проблемы. Мы предложим наш взгляд на мир и на его устройство.
-        </p>
+            <div class="highlight-box">
+                <h3>Мы, команда проекта РОСТ, предлагаем 9-месячный цикл вебинаров, подкастов и прочих источников знаний и энергией для гармонизации жизни и корректировки пути.</h3>
+                <p>
+                    Мы проводим наши мероприятия безвозмездно. Мы не будем предлагать жёстких условий, чтобы вы что-то приобрели. Это наш подарок этому чудесному миру, людям, чтобы было больше Света и Любви.
+                </p>
+                <p style="margin-top: 1.5rem;"><strong>Мы хотим поделиться:</strong></p>
+                <ul>
+                    <li>нашим практическим опытом и знаниями,</li>
+                    <li>транслировать необходимые для гармонии состояния,</li>
+                    <li>провести светлые энергии людям, которые хотят реально развиваться и изменить жизнь к лучшему.</li>
+                </ul>
+            </div>
+
+            <div class="image-text-section reverse">
+                <div>
+                    <img src="images/mountain.jpg" alt="Путь к вершине">
+                </div>
+                <div>
+                    <p>
+                        Мы обсудим актуальные темы, как саморазвитие, кризисы, страхи, внутренние блокады и другие деструктивные психологические феномены и многое другое.
+                    </p>
+                    <p>
+                        Мы не только расскажем о них, но и предложим и проведём в живом эфире практики, которые помогут решить или облегчить те или иные проблемы. Мы предложим наш взгляд на мир и на его устройство.
+                    </p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- How It Works -->
-    <section id="how-it-works">
-        <h2>Как это работает</h2>
-        <div class="work-grid">
-            <div class="work-card">
-                <h3>Вебинары</h3>
-                <p>
-                    Каждую вторую и четвертую среду месяца мы будем проводить на наших площадках вебинары на насущные темы. В анонсах на наших соцсетях будут адреса и ссылки.
-                </p>
-            </div>
-            <div class="work-card">
-                <h3>Подкасты</h3>
-                <p>
-                    Регулярные подкасты с тренерами школы Всёедино.ру и с приглашёнными экспертами и мастерами своего дела помогут сориентироваться в самых разных направлениях по саморазвитию. В прямом эфире вы можете задавать интересующие вас вопросы.
-                </p>
+    <section id="how-it-works" class="section-gray">
+        <div class="container">
+            <h2>Как это работает</h2>
+            <div class="work-grid">
+                <div class="work-card">
+                    <h3>Вебинары</h3>
+                    <p>
+                        Каждую вторую и четвертую среду месяца мы будем проводить на наших площадках вебинары на насущные темы. В анонсах на наших соцсетях будут адреса и ссылки.
+                    </p>
+                </div>
+                <div class="work-card">
+                    <h3>Подкасты</h3>
+                    <p>
+                        Регулярные подкасты с тренерами школы Всёедино.ру и с приглашёнными экспертами и мастерами своего дела помогут сориентироваться в самых разных направлениях по саморазвитию. В прямом эфире вы можете задавать интересующие вас вопросы.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Benefits -->
-    <section id="benefits">
-        <h2>Преимущества и выгоды</h2>
-        <p>
-            Время сейчас - один из самых дорогих ресурсов. И оно ускорилось и чтобы устоять на месте надо быстро бежать. И бежать лучше в правильном для человека направлении: к Свету, Любви, добру, осознанности, гармонии, счастью.
-        </p>
-        <p>
-            Участники проекта РОСТ сэкономят много времени на поиске нужной и эффективной информации. Плюс ко всему будут транслироваться уникальные состояния и энергии для гармонизации жизни, что мало кто делает при работе с людьми.
-        </p>
-
-        <div class="benefit-card">
-            <h3>Главный посыл нашей работы:</h3>
+    <section id="benefits" class="section-light">
+        <div class="container">
+            <h2>Преимущества и выгоды</h2>
             <p>
-                Важно понять и быть в том, что настоящая духовность проживается через правильно и осознанно выстроенную повседневную жизнь с учётом индивидуальности каждого человека.
+                Время сейчас - один из самых дорогих ресурсов. И оно ускорилось и чтобы устоять на месте надо быстро бежать. И бежать лучше в правильном для человека направлении: к Свету, Любви, добру, осознанности, гармонии, счастью.
             </p>
+            <p>
+                Участники проекта РОСТ сэкономят много времени на поиске нужной и эффективной информации. Плюс ко всему будут транслироваться уникальные состояния и энергии для гармонизации жизни, что мало кто делает при работе с людьми.
+            </p>
+
+            <div class="benefit-card">
+                <h3>Главный посыл нашей работы:</h3>
+                <p>
+                    Важно понять и быть в том, что настоящая духовность проживается через правильно и осознанно выстроенную повседневную жизнь с учётом индивидуальности каждого человека.
+                </p>
+            </div>
         </div>
     </section>
 
     <!-- Pricing -->
-    <section id="pricing">
-        <h2>Участие</h2>
-        <div class="pricing-box">
-            <h3>Стоимость участия</h3>
-            <p class="price">Бесплатно</p>
-            <p style="font-size: 1.2rem; margin: 1.5rem 0;">
-                Все мероприятия и материалы предоставляются бесплатно и без условий.
-            </p>
-            <p style="font-size: 1rem; color: #667eea;">
-                Донаты и добровольные пожертвования приветствуются, но не обязательны.
-            </p>
+    <section id="pricing" class="section-gray">
+        <div class="container">
+            <h2>Участие</h2>
+            <div class="pricing-box">
+                <h3>Стоимость участия</h3>
+                <p class="price">Бесплатно</p>
+                <p style="font-size: 1.2rem; margin: 1.5rem 0;">
+                    Все мероприятия и материалы предоставляются бесплатно и без условий.
+                </p>
+                <p style="font-size: 1rem; color: var(--primary-color); font-weight: 600;">
+                    Донаты и добровольные пожертвования приветствуются, но не обязательны.
+                </p>
+            </div>
         </div>
     </section>
 
     <!-- Registration Form -->
-    <section id="registration">
-        <h2>Регистрация</h2>
-        <div class="form-container">
-            <form id="registrationForm" onsubmit="handleSubmit(event)">
-                <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" required placeholder="Ваш email">
-                </div>
-                <div class="form-group">
-                    <label for="phone">Телефон *</label>
-                    <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__">
-                </div>
-                <div class="form-group checkbox-group">
-                    <input type="checkbox" id="consent" name="consent" required>
-                    <label for="consent">Я согласен(на) на обработку персональных данных в соответствии с политикой конфиденциальности *</label>
-                </div>
-                <button type="submit" class="submit-btn">Зарегистрироваться</button>
-            </form>
+    <section id="registration" class="section-light">
+        <div class="container">
+            <h2>Регистрация</h2>
+            <div class="form-container">
+                <form id="registrationForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required placeholder="Ваш email">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__">
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="consent" name="consent" required>
+                        <label for="consent">Я согласен(на) на обработку персональных данных в соответствии с политикой конфиденциальности *</label>
+                    </div>
+                    <button type="submit" class="submit-btn">Зарегистрироваться</button>
+                </form>
+            </div>
         </div>
     </section>
 
     <!-- Final CTA -->
     <div class="final-cta">
-        <h2>Присоединяйтесь к нам на пути к осознанной жизни!</h2>
-        <p style="font-size: 1.2rem; margin-top: 1rem;">
-            Подписывайтесь на наши соцсети и начните свой путь к гармонии уже сегодня.
-        </p>
-        <div class="social-links" style="margin-top: 2rem;">
-            <a href="https://t.me/vseedino.ru" class="social-btn" target="_blank">Telegram</a>
-            <a href="https://vk.com/vseedino" class="social-btn" target="_blank">ВКонтакте</a>
-            <a href="https://www.instagram.com/vseedino.ru" class="social-btn" target="_blank">Instagram</a>
+        <div class="container">
+            <h2>Присоединяйтесь к нам на пути к осознанной жизни!</h2>
+            <p style="font-size: 1.2rem; margin-top: 1rem;">
+                Подписывайтесь на наши соцсети и начните свой путь к гармонии уже сегодня.
+            </p>
+            <div class="social-links" style="margin-top: 2.5rem;">
+                <a href="https://t.me/vseedino.ru" class="social-btn" target="_blank">Telegram</a>
+                <a href="https://vk.com/vseedino" class="social-btn" target="_blank">ВКонтакте</a>
+                <a href="https://www.instagram.com/vseedino.ru" class="social-btn" target="_blank">Instagram</a>
+            </div>
         </div>
     </div>
 
@@ -639,7 +848,7 @@
                 <a href="#registration">Регистрация</a>
                 <a href="#privacy">Политика конфиденциальности</a>
             </div>
-            <div style="margin-top: 2rem;">
+            <div class="footer-contact">
                 <p><strong>Контакты:</strong></p>
                 <p>Email: [Ваш email]</p>
                 <p>Телефон: [Ваш телефон]</p>

@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>РОСТ - Практика осознанной и гармоничной жизни</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .acronym {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem auto;
+            max-width: 900px;
+        }
+
+        .acronym-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .acronym-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Hero Image */
+        .hero-image {
+            margin: 3rem auto;
+            max-width: 800px;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-style: italic;
+            border: 2px dashed rgba(255,255,255,0.3);
+        }
+
+        /* Social CTA */
+        .social-cta {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem auto;
+            max-width: 800px;
+        }
+
+        .social-cta h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-btn {
+            background: white;
+            color: #667eea;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .bot-info {
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #667eea;
+            text-align: center;
+        }
+
+        section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Problem/Solution Section */
+        #problem {
+            background: white;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h3 {
+            color: #667eea;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .highlight-box li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .highlight-box li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        /* How It Works */
+        #how-it-works {
+            background: #f5f7fa;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .work-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .work-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Benefits */
+        #benefits {
+            background: white;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        /* Pricing */
+        #pricing {
+            background: #f5f7fa;
+            text-align: center;
+        }
+
+        .pricing-box {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            max-width: 600px;
+            margin: 2rem auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .pricing-box h3 {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-box .price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #764ba2;
+            margin: 1rem 0;
+        }
+
+        /* Registration Form */
+        #registration {
+            background: white;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: #f5f7fa;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-top: 0.3rem;
+        }
+
+        .checkbox-group label {
+            font-weight: normal;
+            font-size: 0.9rem;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.7;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .final-cta h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .acronym {
+                grid-template-columns: 1fr;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .hero-image {
+                height: 250px;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">РОСТ</div>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Главная</a></li>
+                    <li><a href="#problem">О проекте</a></li>
+                    <li><a href="#how-it-works">Как это работает</a></li>
+                    <li><a href="#benefits">Преимущества</a></li>
+                    <li><a href="#pricing">Участие</a></li>
+                    <li><a href="#registration">Регистрация</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-container">
+            <h1>РОСТ: практика осознанной и гармоничной жизни</h1>
+            <p class="subtitle">
+                Цикл вебинаров, подкастов и мероприятий для поддержки духовного и личностного роста людей от школы Всё едино и системы Прямого Пути Сергея Бобыря для гармонизации повседневной жизни.
+            </p>
+
+            <div class="acronym">
+                <div class="acronym-item">
+                    <h3>Развитие</h3>
+                </div>
+                <div class="acronym-item">
+                    <h3>Осознанность</h3>
+                </div>
+                <div class="acronym-item">
+                    <h3>Спокойствие</h3>
+                </div>
+                <div class="acronym-item">
+                    <h3>Творчество</h3>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                [Место для ключевой картинки]
+            </div>
+
+            <div class="social-cta">
+                <h3>Подписывайтесь на наши соцсети, где мы будем анонсировать наши мероприятия и делиться с вами полезной информацией:</h3>
+                <div class="social-links">
+                    <a href="https://t.me/vseedino.ru" class="social-btn" target="_blank">Telegram</a>
+                    <a href="https://vk.com/vseedino" class="social-btn" target="_blank">ВКонтакте</a>
+                    <a href="https://www.instagram.com/vseedino.ru" class="social-btn" target="_blank">Instagram</a>
+                </div>
+                <div class="bot-info">
+                    <p>Наш тг-бот будет регулярно напоминать вам о текущих и грядущих мероприятиях и прочей активности, а также делиться с вами полезными знаниями в сфере саморазвития:</p>
+                    <p style="margin-top: 1rem;"><strong>[Адрес бота]</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem/Solution Section -->
+    <section id="problem">
+        <h2>О проекте</h2>
+        <p>
+            Времена перемен, которые мы сейчас переживаем, дают уникальную возможность взглянуть на себя и на мир новыми глазами, начать новую осознанную жизнь с чистого листа с учётом индивидуальных способностей и особенностей. Жизнь в кризисные время заставляет задуматься, что не так и хочется ли так дальше жить. Часть людей теряет опору и подсаживаются на алкоголь или антидепрессанты, чтобы забыться и уйти от проблем. Но это только усугубляет кризис. И может привести к печальным последствиям, если не взять себя в руки и не начать работу над собой.
+        </p>
+        <p>
+            И в хаосе информации, который сейчас льётся из сетей, книг и прочих источников можно заблудиться и сделать много непоправимых ошибок. Духовность часто подаётся как некий обрядовый сонм переделанных практик и информации из классических традиций без правильной передачи.
+        </p>
+        <p>
+            О технике безопасности, экологичности духовных практик мало кто говорит открыто. Мы поделимся нашими наработками, как аккуратно, без потерь и лишних проблем становиться лучшей версией себя. Как избавляться от болей, травм, блокад и прочего негатива. Как найти себя настоящего с учётом индивидуальных способностей и особенностей и свой внутренний покой, как творить, как быть осознанным.
+        </p>
+
+        <div class="highlight-box">
+            <h3>Мы, команда проекта РОСТ, предлагаем 9-месячный цикл вебинаров, подкастов и прочих источников знаний и энергией для гармонизации жизни и корректировки пути.</h3>
+            <p>
+                Мы проводим наши мероприятия безвозмездно. Мы не будем предлагать жёстких условий, чтобы вы что-то приобрели. Это наш подарок этому чудесному миру, людям, чтобы было больше Света и Любви.
+            </p>
+            <p><strong>Мы хотим поделиться:</strong></p>
+            <ul>
+                <li>нашим практическим опытом и знаниями,</li>
+                <li>транслировать необходимые для гармонии состояния,</li>
+                <li>провести светлые энергии людям, которые хотят реально развиваться и изменить жизнь к лучшему.</li>
+            </ul>
+        </div>
+
+        <p>
+            Мы обсудим актуальные темы, как саморазвитие, кризисы, страхи, внутренние блокады и другие деструктивные психологические феномены и многое другое. Мы не только расскажем о них, но и предложим и проведём в живом эфире практики, которые помогут решить или облегчить те или иные проблемы. Мы предложим наш взгляд на мир и на его устройство.
+        </p>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works">
+        <h2>Как это работает</h2>
+        <div class="work-grid">
+            <div class="work-card">
+                <h3>Вебинары</h3>
+                <p>
+                    Каждую вторую и четвертую среду месяца мы будем проводить на наших площадках вебинары на насущные темы. В анонсах на наших соцсетях будут адреса и ссылки.
+                </p>
+            </div>
+            <div class="work-card">
+                <h3>Подкасты</h3>
+                <p>
+                    Регулярные подкасты с тренерами школы Всёедино.ру и с приглашёнными экспертами и мастерами своего дела помогут сориентироваться в самых разных направлениях по саморазвитию. В прямом эфире вы можете задавать интересующие вас вопросы.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section id="benefits">
+        <h2>Преимущества и выгоды</h2>
+        <p>
+            Время сейчас - один из самых дорогих ресурсов. И оно ускорилось и чтобы устоять на месте надо быстро бежать. И бежать лучше в правильном для человека направлении: к Свету, Любви, добру, осознанности, гармонии, счастью.
+        </p>
+        <p>
+            Участники проекта РОСТ сэкономят много времени на поиске нужной и эффективной информации. Плюс ко всему будут транслироваться уникальные состояния и энергии для гармонизации жизни, что мало кто делает при работе с людьми.
+        </p>
+
+        <div class="benefit-card">
+            <h3>Главный посыл нашей работы:</h3>
+            <p>
+                Важно понять и быть в том, что настоящая духовность проживается через правильно и осознанно выстроенную повседневную жизнь с учётом индивидуальности каждого человека.
+            </p>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing">
+        <h2>Участие</h2>
+        <div class="pricing-box">
+            <h3>Стоимость участия</h3>
+            <p class="price">Бесплатно</p>
+            <p style="font-size: 1.2rem; margin: 1.5rem 0;">
+                Все мероприятия и материалы предоставляются бесплатно и без условий.
+            </p>
+            <p style="font-size: 1rem; color: #667eea;">
+                Донаты и добровольные пожертвования приветствуются, но не обязательны.
+            </p>
+        </div>
+    </section>
+
+    <!-- Registration Form -->
+    <section id="registration">
+        <h2>Регистрация</h2>
+        <div class="form-container">
+            <form id="registrationForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required placeholder="Ваш email">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Телефон *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__">
+                </div>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="consent" name="consent" required>
+                    <label for="consent">Я согласен(на) на обработку персональных данных в соответствии с политикой конфиденциальности *</label>
+                </div>
+                <button type="submit" class="submit-btn">Зарегистрироваться</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <div class="final-cta">
+        <h2>Присоединяйтесь к нам на пути к осознанной жизни!</h2>
+        <p style="font-size: 1.2rem; margin-top: 1rem;">
+            Подписывайтесь на наши соцсети и начните свой путь к гармонии уже сегодня.
+        </p>
+        <div class="social-links" style="margin-top: 2rem;">
+            <a href="https://t.me/vseedino.ru" class="social-btn" target="_blank">Telegram</a>
+            <a href="https://vk.com/vseedino" class="social-btn" target="_blank">ВКонтакте</a>
+            <a href="https://www.instagram.com/vseedino.ru" class="social-btn" target="_blank">Instagram</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2026 РОСТ - Школа Всё едино. Все права защищены.</p>
+            <div class="footer-links">
+                <a href="#hero">Главная</a>
+                <a href="#problem">О проекте</a>
+                <a href="#how-it-works">Как это работает</a>
+                <a href="#benefits">Преимущества</a>
+                <a href="#pricing">Участие</a>
+                <a href="#registration">Регистрация</a>
+                <a href="#privacy">Политика конфиденциальности</a>
+            </div>
+            <div style="margin-top: 2rem;">
+                <p><strong>Контакты:</strong></p>
+                <p>Email: [Ваш email]</p>
+                <p>Телефон: [Ваш телефон]</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const consent = document.getElementById('consent').checked;
+            
+            if (!consent) {
+                alert('Пожалуйста, дайте согласие на обработку персональных данных.');
+                return;
+            }
+            
+            // Here you would typically send the data to your server
+            console.log('Form submitted:', { email, phone, consent });
+            
+            // Show success message
+            alert('Спасибо за регистрацию! Мы свяжемся с вами в ближайшее время.');
+            
+            // Reset form
+            document.getElementById('registrationForm').reset();
+        }
+    </script>
+</body>
+</html>
