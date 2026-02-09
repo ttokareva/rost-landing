@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>РОСТ - Практика осознанной и гармоничной жизни</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -221,20 +222,33 @@
         }
 
         .social-btn {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 0.75rem 2rem;
-            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
             text-decoration: none;
-            font-weight: 500;
-            transition: transform 0.2s, box-shadow 0.2s;
-            display: inline-block;
-            font-size: 0.875rem;
+            font-size: 1.25rem;
+            transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+            color: white;
+        }
+
+        .social-btn.telegram {
+            background: #0088cc;
+        }
+
+        .social-btn.instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .social-btn.vk {
+            background: #0077ff;
         }
 
         .social-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(107, 155, 55, 0.25);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
         }
 
         .bot-info {
@@ -731,9 +745,15 @@
             <div class="social-cta">
                 <h3>Подписывайтесь на наши соцсети, где мы будем анонсировать наши мероприятия и делиться с вами полезной информацией:</h3>
                 <div class="social-links">
-                    <a href="https://t.me/vseedino.ru" class="social-btn" target="_blank">Telegram</a>
-                    <a href="https://vk.com/vseedino" class="social-btn" target="_blank">ВКонтакте</a>
-                    <a href="https://www.instagram.com/vseedino.ru" class="social-btn" target="_blank">Instagram</a>
+                    <a href="https://t.me/vseedino.ru" class="social-btn telegram" target="_blank" aria-label="Telegram">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                    <a href="https://vk.com/vseedino" class="social-btn vk" target="_blank" aria-label="VK">
+                        <i class="fab fa-vk"></i>
+                    </a>
+                    <a href="https://www.instagram.com/vseedino.ru" class="social-btn instagram" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
                 </div>
                 <div class="bot-info">
                     <p>Наш тг-бот будет регулярно напоминать вам о текущих и грядущих мероприятиях и прочей активности, а также делиться с вами полезными знаниями в сфере саморазвития</p>
@@ -888,9 +908,15 @@
                 Подписывайтесь на наши соцсети и начните свой путь к гармонии уже сегодня.
             </p>
             <div class="social-links" style="margin-top: 2.5rem;">
-                <a href="https://t.me/vseedino.ru" class="social-btn" target="_blank">Telegram</a>
-                <a href="https://vk.com/vseedino" class="social-btn" target="_blank">ВКонтакте</a>
-                <a href="https://www.instagram.com/vseedino.ru" class="social-btn" target="_blank">Instagram</a>
+                <a href="https://t.me/vseedino.ru" class="social-btn telegram" target="_blank" aria-label="Telegram">
+                    <i class="fab fa-telegram-plane"></i>
+                </a>
+                <a href="https://vk.com/vseedino" class="social-btn vk" target="_blank" aria-label="VK">
+                    <i class="fab fa-vk"></i>
+                </a>
+                <a href="https://www.instagram.com/vseedino.ru" class="social-btn instagram" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
             </div>
         </div>
     </div>
