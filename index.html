@@ -66,9 +66,20 @@
             gap: 1.5rem;
         }
 
+        .logo a {
+            display: inline-block;
+            line-height: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo a:hover {
+            opacity: 0.8;
+        }
+
         .logo img {
             height: 50px;
             width: auto;
+            display: block;
         }
 
         .logo-project {
@@ -723,8 +734,12 @@
     <header>
         <div class="header-container">
             <div class="logo">
-                <img src="images/logo-project.png" alt="РОСТ" class="logo-project">
-                <img src="images/logo-school.png" alt="Всёедино" class="logo-school">
+                <a href="#hero" aria-label="На главную">
+                    <img src="images/logo-project.png" alt="РОСТ" class="logo-project">
+                </a>
+                <a href="https://vseedino.ru" target="_blank" rel="noopener noreferrer" aria-label="Сайт Всёедино">
+                    <img src="images/logo-school.png" alt="Всёедино" class="logo-school">
+                </a>
             </div>
             <nav>
                 <ul>
